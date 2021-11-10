@@ -1,8 +1,8 @@
 /* eslint-env node */
 
-import {chrome} from '../../electron-vendors.config.json';
-import {join} from 'path';
-import {builtinModules} from 'module';
+import { chrome } from '../../electron-vendors.config.json';
+import { join } from 'path';
+import { builtinModules } from 'module';
 import react from '@vitejs/plugin-react';
 
 const PACKAGE_ROOT = __dirname;
@@ -32,9 +32,7 @@ const config = {
     outDir: 'dist',
     assetsDir: '.',
     rollupOptions: {
-      external: [
-        ...builtinModules,
-      ],
+      external: [...builtinModules],
     },
     emptyOutDir: true,
     brotliSize: false,

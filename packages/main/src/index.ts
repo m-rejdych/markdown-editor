@@ -16,6 +16,11 @@ let mainWindow: BrowserWindow | null = null;
 const createWindow = async () => {
   mainWindow = new BrowserWindow({
     show: false, // Use 'ready-to-show' event to show window
+    transparent: true,
+    frame: false,
+    alwaysOnTop: true,
+    vibrancy: 'under-window',
+    visualEffectState: 'active',
     webPreferences: {
       nativeWindowOpen: true,
       preload: join(__dirname, '../../preload/dist/index.cjs'),

@@ -1,24 +1,16 @@
 // @jsxImportSource @emotion/react */
-import React, { useState } from 'react';
+import React from 'react';
 
 import TopBar from './components/TopBar';
+import Editor from './components/Editor';
+import Preview from './components/Preview';
 
-
-const App: React.FC = () => {
-  const [count, setCount] = useState(0);
-
-  const handleIncrement = (): void => {
-    setCount((prev) => prev + 1);
-  };
-
-  return (
-    <div css={{ backgroundColor: 'transparent', marginTop: 30 }}>
-      <TopBar />
-      <h1>Hello world!</h1>
-      <h3>{count}</h3>
-      <button onClick={handleIncrement}>Increment</button>
-    </div>
-  );
-};
+const App: React.FC = () => (
+  <div css={{ display: 'flex', backgroundColor: 'transparent', marginTop: 30 }}>
+    <TopBar />
+    <Editor />
+    <Preview />
+  </div>
+);
 
 export default App;

@@ -7,12 +7,14 @@
     "skipLibCheck": true,
     "strict": true,
     "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsx",
     "types": [
       "node"
     ],
     "typeRoots": [
-      "node_modules/@types",
+      "node_modules/@types"
     ],
     "lib": ["ESNext"]
-  },
+  }
 }

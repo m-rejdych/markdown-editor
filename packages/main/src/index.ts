@@ -18,7 +18,6 @@ const createWindow = async () => {
     show: false, // Use 'ready-to-show' event to show window
     transparent: true,
     frame: false,
-    alwaysOnTop: true,
     vibrancy: 'under-window',
     visualEffectState: 'active',
     webPreferences: {

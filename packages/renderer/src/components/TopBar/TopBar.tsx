@@ -14,6 +14,7 @@ const TopBar: React.FC = () => {
         WebkitUserSelect: 'none',
         userSelect: 'none',
         WebkitAppRegion: 'drag',
+        zIndex: 1,
       }}
     />
   );

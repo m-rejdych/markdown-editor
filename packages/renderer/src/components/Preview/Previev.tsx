@@ -6,10 +6,8 @@ const Preview: React.FC = () => {
     <div
       css={{
         width: '50%',
-        paddingTop: 24,
-        paddingRight: 24,
-        paddingBottom: 24,
         paddingLeft: 16,
+        overflow: 'hidden',
       }}
     >
       Hello preview

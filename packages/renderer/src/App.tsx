@@ -1,4 +1,3 @@
-// @jsxImportSource @emotion/react */
 import React, { useState } from 'react';
 import type { ViewUpdate } from '@codemirror/view';
 

@@ -1,4 +1,3 @@
-//* @jsxImportSource @emotion/react */
 import React from 'react';
 import useCodeMirror from './hooks/useCodeMirror';
 import type { ViewUpdate } from '@codemirror/view';

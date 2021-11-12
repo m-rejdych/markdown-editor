@@ -1,4 +1,4 @@
-import { app, BrowserWindow, shell } from 'electron';
+import { app, BrowserWindow, shell, ipcMain } from 'electron';
 import { join } from 'path';
 import { URL } from 'url';
 
@@ -79,6 +79,21 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
+});
+
+ipcMain.on('close-window', () => {
+  if (!mainWindow) return;
+  mainWindow?.close();
+});
+
+ipcMain.on('window-minimize', () => {
+  if (!mainWindow) return;
+  mainWindow.minimize();
+});
+
+ipcMain.on('window-maximize', () => {
+  if (!mainWindow) return;
+  mainWindow.maximize();
 });
 
 app

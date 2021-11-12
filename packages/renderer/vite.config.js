@@ -19,7 +19,7 @@ const config = {
       '/@/': join(PACKAGE_ROOT, 'src') + '/',
     },
   },
-  plugins: [react()],
+  plugins: [react({ jsxImportSource: '@emotion/react' })],
   base: '',
   server: {
     fs: {

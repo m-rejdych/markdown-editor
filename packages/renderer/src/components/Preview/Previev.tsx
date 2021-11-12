@@ -1,4 +1,3 @@
-//* @jsxImportSource @emotion/react */
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkHeadingGap from 'remark-heading-gap';

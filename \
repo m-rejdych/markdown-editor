@@ -14,7 +14,7 @@ const api: ExposedValues = {
   versions: process.versions,
   close: (): void => ipcRenderer.send('close-window'),
   minimize: (): void => ipcRenderer.send('window-minimize'),
-  maximize: (): void => ipcRenderer.send('window-maximize'),
+  maximize: (): void  => ipcRenderer.send('window-maximize'),
 };
 
 /**

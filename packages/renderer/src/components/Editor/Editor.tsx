@@ -12,7 +12,7 @@ const Editor: React.FC<Props> = ({ onChange }) => {
   return (
     <>
       <div
-        ref={containerRef}
+        ref={containerRef as React.Ref<HTMLDivElement>}
         css={{
           color: '#abb2bf',
           width: '50%',

@@ -22,7 +22,7 @@ import type { ViewUpdate } from '@codemirror/view';
 import { transparentTheme, syntaxHighlighting } from '../constants/styles';
 
 interface CodeMirrorData {
-  containerRef: Ref<HTMLDivElement>;
+  containerRef: Ref<HTMLDivElement | null>;
 }
 
 interface Args {
@@ -60,7 +60,7 @@ const useCodeMirror = ({ onChange }: Args): CodeMirrorData => {
           EditorView.updateListener.of(onChange),
         ],
       }),
-      parent: containerRef.current,
+      parent: containerRef.current as Element,
     });
   }, []);
 

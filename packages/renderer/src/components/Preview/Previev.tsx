@@ -2,7 +2,10 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkHeadingGap from 'remark-heading-gap';
 import remarkGfm from 'remark-gfm';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import {
+  Prism as SyntaxHighlighter,
+  SyntaxHighlighterProps,
+} from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 interface Props {
   codeLines: string[];
@@ -41,12 +44,14 @@ const Preview: React.FC<Props> = ({ codeLines }) => {
     >
       <ReactMarkdown
         children={codeLines.join('\n')}
-        remarkPlugins={[
-          [remarkHeadingGap, headingGapOptionsMap],
-          remarkGfm,
-        ]}
+        remarkPlugins={[[remarkHeadingGap, headingGapOptionsMap], remarkGfm]}
         components={{
-          code({ inline, className, children, ...props }) {
+          code({
+            inline,
+            className,
+            children,
+            ...props
+          }: SyntaxHighlighterProps) {
             const match = /language-(\w+)/.exec(className || '');
             return !inline && match ? (
               <SyntaxHighlighter

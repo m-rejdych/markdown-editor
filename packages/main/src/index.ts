@@ -2,6 +2,20 @@ import { app, BrowserWindow, shell, ipcMain } from 'electron';
 import { join } from 'path';
 import { URL } from 'url';
 
+declare global {
+  interface ImportMeta {
+    hot: {
+      accept: () => void;
+      dispose: () => void;
+    };
+    env: {
+      MODE: string;
+      PROD: boolean;
+      VITE_DEV_SERVER_URL: string;
+    };
+  }
+}
+
 const isSingleInstance = app.requestSingleInstanceLock();
 
 if (!isSingleInstance) {

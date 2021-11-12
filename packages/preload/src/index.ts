@@ -1,16 +1,10 @@
 import { contextBridge, ipcRenderer } from 'electron';
 
-interface ExposedValues extends ElectronApi {
-  close: () => void;
-  minimize: () => void;
-  maximize: () => void;
-}
-
 const apiKey = 'electron';
 /**
  * @see https://github.com/electron/electron/issues/21437#issuecomment-573522360
  */
-const api: ExposedValues = {
+const api: ElectronApi = {
   versions: process.versions,
   close: (): void => ipcRenderer.send('close-window'),
   minimize: (): void => ipcRenderer.send('window-minimize'),

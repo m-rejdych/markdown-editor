@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import type { Ref } from 'react';
 import {
   markdown,
@@ -22,17 +22,16 @@ import type { ViewUpdate } from '@codemirror/view';
 import { transparentTheme, syntaxHighlighting } from '../constants/styles';
 
 interface CodeMirrorData {
-  values: string[];
   containerRef: Ref<HTMLDivElement>;
 }
 
-const useCodeMirror = (): CodeMirrorData => {
-  const [values, setValues] = useState<string[]>([]);
+interface Args {
+  onChange: (update: ViewUpdate) => void;
+}
+
+const useCodeMirror = ({ onChange }: Args): CodeMirrorData => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const handleChange = (update: ViewUpdate): void => {
-    setValues(update.state.doc.text);
-  };
 
   useEffect(() => {
     new EditorView({
@@ -58,14 +57,14 @@ const useCodeMirror = (): CodeMirrorData => {
           bracketMatching(),
           closeBrackets(),
           EditorView.lineWrapping,
-          EditorView.updateListener.of(handleChange),
+          EditorView.updateListener.of(onChange),
         ],
       }),
       parent: containerRef.current,
     });
   }, []);
 
-  return { values, containerRef };
+  return { containerRef };
 };
 
 export default useCodeMirror;

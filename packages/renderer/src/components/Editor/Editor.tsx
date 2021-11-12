@@ -1,16 +1,21 @@
 //* @jsxImportSource @emotion/react */
 import React from 'react';
 import useCodeMirror from './hooks/useCodeMirror';
+import type { ViewUpdate } from '@codemirror/view';
 
-const Editor: React.FC = () => {
-  const { containerRef } = useCodeMirror();
+interface Props {
+  onChange: (update: ViewUpdate) => void;
+}
+
+const Editor: React.FC<Props> = ({ onChange }) => {
+  const { containerRef } = useCodeMirror({ onChange });
 
   return (
     <>
       <div
         ref={containerRef}
         css={{
-          color: '#fff',
+          color: '#abb2bf',
           width: '50%',
           paddingRight: 16,
           fontSize: 18,
